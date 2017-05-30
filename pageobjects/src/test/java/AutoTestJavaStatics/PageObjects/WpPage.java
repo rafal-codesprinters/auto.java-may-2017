@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public abstract class WpPage {
 
-    public static final String MAINT_PAGE_URL = "http://autotestjava.wordpress.com";
+    public static final String MAIN_PAGE_URL = "http://autotestjava.wordpress.com";
 
     protected static void WaitForElementPresent(By byLocator, WebDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, 20);

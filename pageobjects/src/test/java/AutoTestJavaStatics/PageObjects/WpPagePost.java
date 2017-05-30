@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 /**
  * Created by Kuba on 2017-05-30.
  */
-public class WpPagePost extends WpPage{
+public abstract class WpPagePost extends WpPage{
 
     private static final By COMMENT_BOX_LOCATOR = By.id("comment");
     private static final By EMAIL_BOX_LOCATOR = By.id("email");
@@ -39,13 +39,22 @@ public class WpPagePost extends WpPage{
     }
 
     public static void AssertCommentIsPosted(String expectedCommentText, String name, WebDriver driver) {
-        By postedCommentLocator = By.xpath("//article[.//cite[text()='" + name + "']]");
+        By postedCommentLocator = GetPostedCommentLocator(name);
         WaitForElementPresent(postedCommentLocator, driver);
 
         WebElement postedComment = driver.findElement(postedCommentLocator);
-        String actualCommenText = postedComment.findElement(COMMENT_CONTENT_LOCATOR).findElement(By.tagName("p")).getText();
+        String actualCommentText = GetCommentText(postedComment);
 
-        Assert.assertEquals(expectedCommentText, actualCommenText);
+        Assert.assertEquals(expectedCommentText, actualCommentText);
+    }
+
+    private static By GetPostedCommentLocator(String authorName) {
+        return By.xpath("//article[.//cite[text()='" + authorName + "']]");
+    }
+
+    private static String GetCommentText(WebElement comment) {
+        WebElement commentContent = comment.findElement(COMMENT_CONTENT_LOCATOR);
+        return commentContent.findElement(By.tagName("p")).getText();
     }
 
 }

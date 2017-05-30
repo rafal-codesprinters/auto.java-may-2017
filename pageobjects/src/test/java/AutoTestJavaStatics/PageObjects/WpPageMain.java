@@ -7,16 +7,23 @@ import org.openqa.selenium.WebElement;
 /**
  * Created by Kuba on 2017-05-30.
  */
-public class WpPageMain extends WpPage {
+public abstract class WpPageMain extends WpPage {
+
+    private static final By POST_LINK_LOCATOR = By.className("entry-header");
 
     public static void Open(WebDriver driver) {
-        driver.get(WpPage.MAINT_PAGE_URL);
+        driver.get(WpPage.MAIN_PAGE_URL);
     }
 
     public static void DisplayPost(int postNumber, WebDriver driver) {
-        WebElement post = driver.findElement(By.xpath("//article[" + postNumber + "]"));
-        WebElement postLink = post.findElement(By.className("entry-header"));
+        By postLocator = GetPostLocator(postNumber);
+        WebElement post = driver.findElement(postLocator);
+        WebElement postLink = post.findElement(POST_LINK_LOCATOR);
         postLink.click();
+    }
+
+    private static By GetPostLocator(int postNumber) {
+        return By.xpath("//article[" + postNumber + "]");
     }
 
 }
