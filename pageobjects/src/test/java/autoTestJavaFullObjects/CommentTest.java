@@ -1,18 +1,16 @@
-package AutoTestJavaFullObjects;
+package autoTestJavaFullObjects;
 
-import AutoTestJavaFullObjects.PageObjects.WpPageMain;
-import AutoTestJavaFullObjects.PageObjects.WpPagePost;
+import autoTestJavaFullObjects.pageObjects.WpPageMain;
+import autoTestJavaFullObjects.pageObjects.WpPagePost;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.UUID;
 
-import static AutoTestJavaStatics.PageObjects.WpPageMain.Open;
-
 /**
  * Created by Rafal on 2017-05-31.
  */
-public class CommentTests extends BaseTests {
+public class CommentTest extends BaseTests {
 
     @Test
     public void ShouldAddCommentToThirdPost() {

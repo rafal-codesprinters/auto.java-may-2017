@@ -1,7 +1,7 @@
-package AutoTestJavaStatics;
+package autoTestJavaStatics;
 
-import AutoTestJavaStatics.PageObjects.WpPageMain;
-import AutoTestJavaStatics.PageObjects.WpPagePost;
+import autoTestJavaStatics.pageObjects.WpPageMain;
+import autoTestJavaStatics.pageObjects.WpPagePost;
 import org.junit.Assert;
 import org.junit.Test;
 import java.util.UUID;
@@ -9,7 +9,7 @@ import java.util.UUID;
 /**
  * Created by Kuba on 2017-05-30.
  */
-public class CommentsTests extends BaseTests{
+public class CommentsTest extends BaseTests{
 
     @Test
     public void ShouldAddCommentToThirdPost() {

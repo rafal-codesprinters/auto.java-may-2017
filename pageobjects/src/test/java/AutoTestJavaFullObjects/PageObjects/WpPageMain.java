@@ -1,4 +1,4 @@
-package AutoTestJavaFullObjects.PageObjects;
+package autoTestJavaFullObjects.pageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

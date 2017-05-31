@@ -1,4 +1,4 @@
-package AutoTestJavaFullObjects;
+package autoTestJavaFullObjects;
 
 import org.junit.After;
 import org.junit.Before;
