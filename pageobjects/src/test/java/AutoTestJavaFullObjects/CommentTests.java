@@ -2,6 +2,7 @@ package AutoTestJavaFullObjects;
 
 import AutoTestJavaFullObjects.PageObjects.WpPageMain;
 import AutoTestJavaFullObjects.PageObjects.WpPagePost;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.UUID;
@@ -28,7 +29,7 @@ public class CommentTests extends BaseTests {
         postPage.AddComment(comment, email, name);
 
         //THEN / ASSERT
-        postPage.AssertCommentIsPosted(comment, name);
+        Assert.assertTrue("Comment should be posted", postPage.AssertCommentIsPosted(comment, name));
     }
 
 }

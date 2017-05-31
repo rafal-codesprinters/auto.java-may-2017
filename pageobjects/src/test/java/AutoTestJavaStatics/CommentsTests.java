@@ -2,6 +2,7 @@ package AutoTestJavaStatics;
 
 import AutoTestJavaStatics.PageObjects.WpPageMain;
 import AutoTestJavaStatics.PageObjects.WpPagePost;
+import org.junit.Assert;
 import org.junit.Test;
 import java.util.UUID;
 
@@ -24,6 +25,6 @@ public class CommentsTests extends BaseTests{
         WpPagePost.AddComment(comment, email, name, driver);
 
         //THEN / ASSERT
-        WpPagePost.AssertCommentIsPosted(comment, name, driver);
+        Assert.assertTrue("Comment should be posted", WpPagePost.IsCommentPosted(comment, name, driver));
     }
 }

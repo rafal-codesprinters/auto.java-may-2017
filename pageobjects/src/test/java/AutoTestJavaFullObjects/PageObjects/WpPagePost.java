@@ -42,14 +42,14 @@ public class WpPagePost extends WpPage {
         postCommentButton.click();
     }
 
-    public void AssertCommentIsPosted(String expectedCommentText, String name) {
+    public boolean AssertCommentIsPosted(String expectedCommentText, String name) {
         By postedCommentLocator = GetPostedCommentLocator(name);
         WaitForElementPresent(postedCommentLocator, driver);
 
         WebElement postedComment = driver.findElement(postedCommentLocator);
         String actualCommentText = GetCommentText(postedComment);
 
-        Assert.assertEquals(expectedCommentText, actualCommentText);
+        return expectedCommentText.equals(actualCommentText);
     }
 
     private static By GetPostedCommentLocator(String authorName) {
