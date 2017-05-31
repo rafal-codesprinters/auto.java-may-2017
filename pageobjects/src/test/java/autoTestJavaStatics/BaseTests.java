@@ -3,6 +3,7 @@ package autoTestJavaStatics;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.UUID;
@@ -15,12 +16,14 @@ public abstract class BaseTests {
 
     private final String GECKO_DRIVER_NAME = "webdriver.gecko.driver";
     private final String GECKO_DRIVER_PATH = "C:\\bin\\geckodriver.exe";
+    private final String CHROME_DRIVER_NAME = "webdriver.chrome.driver";
+    private final String CHROME_DRIVER_PATH = "C:\\bin\\chromedriver.exe";
     protected WebDriver driver;
 
     @Before
     public void TestSetup() {
         System.setProperty(GECKO_DRIVER_NAME, GECKO_DRIVER_PATH);
-        driver = new FirefoxDriver();
+        driver = new ChromeDriver();
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
