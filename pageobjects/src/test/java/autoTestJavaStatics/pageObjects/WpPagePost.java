@@ -18,34 +18,34 @@ public abstract class WpPagePost extends WpPage{
     private static final By COMMENT_CONTENT_LOCATOR = By.className("comment-content");
 
     public static void AddComment(String comment, String email, String name, WebDriver driver) {
-        WaitForElementPresent(COMMENT_BOX_LOCATOR, driver);
+        WaitUntilElementIsClickable(COMMENT_BOX_LOCATOR, driver);
         WebElement commentBox = driver.findElement(COMMENT_BOX_LOCATOR);
         commentBox.click();
         commentBox.clear();
         commentBox.sendKeys(comment);
 
         driver.findElement(EMAIL_BOX_LABEL_LOCATOR).click();
-        WaitForElementPresent(EMAIL_BOX_LOCATOR, driver);
+        WaitUntilElementIsVisible(EMAIL_BOX_LOCATOR, driver);
         WebElement emailBox = driver.findElement(EMAIL_BOX_LOCATOR);
         emailBox.click();
         emailBox.clear();
         emailBox.sendKeys(email);
 
         driver.findElement(NAME_BOX_LABEL_LOCATOR).click();
-        WaitForElementPresent(NAME_BOX_LOCATOR, driver);
+        WaitUntilElementIsVisible(NAME_BOX_LOCATOR, driver);
         WebElement nameBox = driver.findElement(NAME_BOX_LOCATOR);
         nameBox.click();
         nameBox.clear();
         nameBox.sendKeys(name);
 
-        WaitForElementPresent(POST_COMMENT_BUTTON_LOCATOR, driver);
+        WaitUntilElementIsClickable(POST_COMMENT_BUTTON_LOCATOR, driver);
         WebElement postCommentButton = driver.findElement(POST_COMMENT_BUTTON_LOCATOR);
         postCommentButton.click();
     }
 
     public static boolean IsCommentPosted(String expectedCommentText, String name, WebDriver driver) {
         By postedCommentLocator = GetPostedCommentLocator(name);
-        WaitForElementPresent(postedCommentLocator, driver);
+        WaitUntilElementIsClickable(postedCommentLocator, driver);
 
         WebElement postedComment = driver.findElement(postedCommentLocator);
         String actualCommentText = GetCommentText(postedComment);

@@ -13,12 +13,17 @@ public abstract class WpPage {
     public static final String MAIN_PAGE_URL = "http://autotestjava.wordpress.com";
     protected static final By FOOTER_LOCATOR = By.tagName("footer");
 
-    protected static void WaitForElementPresent(By byLocator, WebDriver driver) {
+    protected static void WaitUntilElementIsClickable(By byLocator, WebDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(byLocator));
     }
 
+    protected static void WaitUntilElementIsVisible(By byLocator, WebDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        wait.until(ExpectedConditions.presenceOfElementLocated(byLocator));
+    }
+
     protected static void WaitUntilFooterIsDisplayed(WebDriver driver) {
-        WaitForElementPresent(WpPage.FOOTER_LOCATOR, driver);
+        WaitUntilElementIsClickable(WpPage.FOOTER_LOCATOR, driver);
     }
 }
