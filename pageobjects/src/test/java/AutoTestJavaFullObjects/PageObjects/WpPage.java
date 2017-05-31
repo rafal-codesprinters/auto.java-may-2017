@@ -12,6 +12,7 @@ public abstract class WpPage {
 
     protected WebDriver driver;
     public static final String MAIN_PAGE_URL = "http://autotestjava.wordpress.com";
+    protected static final By FOOTER_LOCATOR = By.tagName("footer");
 
     public WpPage(WebDriver driver) {
         this.driver = driver;
@@ -20,5 +21,9 @@ public abstract class WpPage {
     protected static void WaitForElementPresent(By byLocator, WebDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(byLocator));
+    }
+
+    protected static void WaitUntilFooterIsDisplayed(WebDriver driver) {
+        WaitForElementPresent(WpPage.FOOTER_LOCATOR, driver);
     }
 }

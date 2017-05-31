@@ -17,6 +17,7 @@ public class WpPageMain extends WpPage{
 
     public void Open() {
         driver.get(WpPage.MAIN_PAGE_URL);
+        WpPage.WaitUntilFooterIsDisplayed(driver);
     }
 
     public WpPagePost DisplayPost(int postNumber) {

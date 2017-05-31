@@ -13,6 +13,7 @@ public abstract class WpPageMain extends WpPage {
 
     public static void Open(WebDriver driver) {
         driver.get(WpPage.MAIN_PAGE_URL);
+        WpPage.WaitUntilFooterIsDisplayed(driver);
     }
 
     public static void DisplayPost(int postNumber, WebDriver driver) {
