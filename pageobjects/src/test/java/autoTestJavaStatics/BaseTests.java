@@ -39,6 +39,6 @@ public abstract class BaseTests {
         for (int i=0; i<5; i++) {
             text = UUID.randomUUID().toString() + " " + text;
         }
-        return text.trim();}}}}
+        return text.trim();
     }
 }
