@@ -10,9 +10,9 @@ import org.openqa.selenium.WebElement;
 public class WpPagePost extends WpPage {
 
     private static final By COMMENT_BOX_LOCATOR = By.id("comment");
-    private static final By EMAIL_BOX_LABEL_LOCATOR = By.cssSelector(".comment-form-email");
+    private static final By EMAIL_BOX_LABEL_LOCATOR = By.cssSelector(".comment-form-email > label");
     private static final By EMAIL_BOX_LOCATOR = By.id("email");
-    private static final By NAME_BOX_LABEL_LOCATOR = By.cssSelector(".comment-form-author");
+    private static final By NAME_BOX_LABEL_LOCATOR = By.cssSelector(".comment-form-author > label");
     private static final By NAME_BOX_LOCATOR = By.id("author");
     private static final By POST_COMMENT_BUTTON_LOCATOR = By.id("comment-submit");
     private static final By COMMENT_CONTENT_LOCATOR = By.className("comment-content");
@@ -29,14 +29,14 @@ public class WpPagePost extends WpPage {
         commentBox.sendKeys(comment);
 
         driver.findElement(EMAIL_BOX_LABEL_LOCATOR).click();
-        WaitUntilElementIsVisible(EMAIL_BOX_LOCATOR, driver);
+        WaitUntilElementIsNotVisible(EMAIL_BOX_LABEL_LOCATOR, driver);
         WebElement emailBox = driver.findElement(EMAIL_BOX_LOCATOR);
         emailBox.click();
         emailBox.clear();
         emailBox.sendKeys(email);
 
         driver.findElement(NAME_BOX_LABEL_LOCATOR).click();
-        WaitUntilElementIsVisible(NAME_BOX_LOCATOR, driver);
+        WaitUntilElementIsNotVisible(NAME_BOX_LABEL_LOCATOR, driver);
         WebElement nameBox = driver.findElement(NAME_BOX_LOCATOR);
         nameBox.click();
         nameBox.clear();

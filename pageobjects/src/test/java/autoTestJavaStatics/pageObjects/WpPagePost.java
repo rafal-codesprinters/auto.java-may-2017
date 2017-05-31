@@ -25,14 +25,14 @@ public abstract class WpPagePost extends WpPage{
         commentBox.sendKeys(comment);
 
         driver.findElement(EMAIL_BOX_LABEL_LOCATOR).click();
-        WaitUntilElementIsVisible(EMAIL_BOX_LOCATOR, driver);
+        WaitUntilElementIsNotVisible(EMAIL_BOX_LABEL_LOCATOR, driver);
         WebElement emailBox = driver.findElement(EMAIL_BOX_LOCATOR);
         emailBox.click();
         emailBox.clear();
         emailBox.sendKeys(email);
 
         driver.findElement(NAME_BOX_LABEL_LOCATOR).click();
-        WaitUntilElementIsVisible(NAME_BOX_LOCATOR, driver);
+        WaitUntilElementIsNotVisible(NAME_BOX_LABEL_LOCATOR, driver);
         WebElement nameBox = driver.findElement(NAME_BOX_LOCATOR);
         nameBox.click();
         nameBox.clear();

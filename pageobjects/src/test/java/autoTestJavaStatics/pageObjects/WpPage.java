@@ -20,7 +20,12 @@ public abstract class WpPage {
 
     protected static void WaitUntilElementIsVisible(By byLocator, WebDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, 20);
-        wait.until(ExpectedConditions.presenceOfElementLocated(byLocator));
+        wait.until(ExpectedConditions.elementToBeClickable(byLocator));
+    }
+
+    protected static void WaitUntilElementIsNotVisible(By byLocator, WebDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(byLocator));
     }
 
     protected static void WaitUntilFooterIsDisplayed(WebDriver driver) {
