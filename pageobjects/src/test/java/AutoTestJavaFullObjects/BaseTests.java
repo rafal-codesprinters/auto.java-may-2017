@@ -1,4 +1,4 @@
-package AutoTestJavaStatics;
+package AutoTestJavaFullObjects;
 
 import org.junit.After;
 import org.junit.Before;
@@ -9,7 +9,7 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by Kuba on 2017-05-30.
+ * Created by Rafal on 2017-05-31.
  */
 public abstract class BaseTests {
 
@@ -41,4 +41,5 @@ public abstract class BaseTests {
         }
         return text.trim();
     }
+
 }
