@@ -36,7 +36,7 @@ public abstract class BaseTests {
 
     protected String generateRandomText() {
         String text = "";
-        for (int i=0; i<50; i++) {
+        for (int i=0; i<5; i++) {
             text = UUID.randomUUID().toString() + " " + text;
         }
         return text.trim();

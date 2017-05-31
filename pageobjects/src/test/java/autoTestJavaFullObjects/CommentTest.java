@@ -13,7 +13,7 @@ import java.util.UUID;
 public class CommentTest extends BaseTests {
 
     @Test
-    public void ShouldAddCommentToThirdPost() {
+    public void ShouldAddCommentToThirdPost() throws InterruptedException {
 
         // GIVEN / ARRANGE
         String comment = generateRandomText();
