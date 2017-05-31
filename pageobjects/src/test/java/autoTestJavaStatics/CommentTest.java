@@ -9,7 +9,7 @@ import java.util.UUID;
 /**
  * Created by Kuba on 2017-05-30.
  */
-public class CommentsTest extends BaseTests{
+public class CommentTest extends BaseTests{
 
     @Test
     public void ShouldAddCommentToThirdPost() {
