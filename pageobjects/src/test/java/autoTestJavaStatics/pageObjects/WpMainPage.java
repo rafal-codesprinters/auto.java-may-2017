@@ -7,12 +7,12 @@ import org.openqa.selenium.WebElement;
 /**
  * Created by Kuba on 2017-05-30.
  */
-public abstract class WpPageMain extends WpPage {
+public abstract class WpMainPage extends WpPage {
 
     private static final By POST_LINK_LOCATOR = By.className("entry-header");
 
     public static void Open(WebDriver driver) {
-        driver.get(WpPage.MAIN_PAGE_URL);
+        driver.get(WpPage.URL_MAIN_PAGE);
         WpPage.WaitUntilFooterIsDisplayed(driver);
     }
 

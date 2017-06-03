@@ -1,11 +1,9 @@
 package autoTestJavaFullObjects;
 
-import autoTestJavaFullObjects.pageObjects.WpPageMain;
-import autoTestJavaFullObjects.pageObjects.WpPagePost;
+import autoTestJavaFullObjects.pageObjects.WpMainPage;
+import autoTestJavaFullObjects.pageObjects.WpPostPage;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.UUID;
 
 /**
  * Created by Rafal on 2017-05-31.
@@ -13,21 +11,45 @@ import java.util.UUID;
 public class CommentTest extends BaseTests {
 
     @Test
-    public void ShouldAddCommentToThirdPost() throws InterruptedException {
+    public void ShouldAddCommentToThirdPost() {
 
         // GIVEN / ARRANGE
-        String comment = generateRandomText();
-        String email = UUID.randomUUID().toString() + "@test.com";
-        String name = UUID.randomUUID().toString();
+        String commentText = GenerateRandomText();
+        String commentAuthorEmail = GenerateRandomEmail();
+        String commentAuthorName = GenerateRandomName();
 
         //WHEN / ACT
-        WpPageMain mainPage = new WpPageMain(this.driver);
+        WpMainPage mainPage = new WpMainPage(this.driver);
         mainPage.Open();
-        WpPagePost postPage = mainPage.DisplayPost(3);
-        postPage.AddComment(comment, email, name);
+        WpPostPage postPage = mainPage.DisplayPost(3);
+        postPage.AddComment(commentText, commentAuthorEmail, commentAuthorName);
 
         //THEN / ASSERT
-        Assert.assertTrue("Comment should be posted", postPage.AssertCommentIsPosted(comment, name));
+        Assert.assertTrue("Comment should be posted", postPage.IsCommentPosted(commentText, commentAuthorName));
+
     }
 
+    @Test
+    public void ShouldAddReplyToComment() {
+
+        // GIVEN / ARRANGE
+        String commentText = GenerateRandomText();
+        String commentAuthorEmail = GenerateRandomEmail();
+        String commentAuthorName = GenerateRandomName();
+
+        String replyText = GenerateRandomText();
+        String replyAuthorEmail = GenerateRandomEmail();
+        String replyAuthorName = GenerateRandomName();
+
+        //WHEN / ACT
+        WpMainPage mainPage = new WpMainPage(this.driver);
+        mainPage.Open();
+        WpPostPage postPage = mainPage.DisplayPost(1);
+        postPage.AddComment(commentText, commentAuthorEmail, commentAuthorName);
+        postPage.AddReplyToComment(commentText, commentAuthorName, replyText, replyAuthorEmail, replyAuthorName);
+
+        //THEN / ASSERT
+        Assert.assertTrue("Reply should be posted", postPage.IsReplyPosted(commentText, commentAuthorName, replyText, replyAuthorName));
+
+    }
 }

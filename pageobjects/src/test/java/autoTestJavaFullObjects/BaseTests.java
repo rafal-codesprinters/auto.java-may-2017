@@ -22,8 +22,8 @@ public abstract class BaseTests {
 
     @Before
     public void TestSetup() {
-        System.setProperty(CHROME_DRIVER_NAME, CHROME_DRIVER_PATH);
-        driver = new ChromeDriver();
+        System.setProperty(GECKO_DRIVER_NAME, GECKO_DRIVER_PATH);
+        driver = new FirefoxDriver();
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
@@ -37,12 +37,20 @@ public abstract class BaseTests {
         }
     }
 
-    protected String generateRandomText() {
+    protected String GenerateRandomText() {
         String text = "";
         for (int i=0; i<5; i++) {
             text = UUID.randomUUID().toString() + " " + text;
         }
         return text.trim();
+    }
+
+    protected String GenerateRandomEmail() {
+        return UUID.randomUUID().toString() + "@test.com";
+    }
+
+    protected String GenerateRandomName() {
+        return UUID.randomUUID().toString();
     }
 
 }

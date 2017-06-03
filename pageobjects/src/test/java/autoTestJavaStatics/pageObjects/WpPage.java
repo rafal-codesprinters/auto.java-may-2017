@@ -10,8 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public abstract class WpPage {
 
-    public static final String MAIN_PAGE_URL = "http://autotestjava.wordpress.com";
-    protected static final By FOOTER_LOCATOR = By.tagName("footer");
+    public static final String URL_MAIN_PAGE = "http://autotestjava.wordpress.com";
+    protected static final By LOCATOR_FOOTER = By.tagName("footer");
 
     protected static void WaitUntilElementIsClickable(By byLocator, WebDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, 20);
@@ -23,12 +23,12 @@ public abstract class WpPage {
         wait.until(ExpectedConditions.elementToBeClickable(byLocator));
     }
 
-    protected static void WaitUntilElementIsNotVisible(By byLocator, WebDriver driver) {
+    protected static void WaitUntilElementIsHidden(By byLocator, WebDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(byLocator));
     }
 
     protected static void WaitUntilFooterIsDisplayed(WebDriver driver) {
-        WaitUntilElementIsClickable(WpPage.FOOTER_LOCATOR, driver);
+        WaitUntilElementIsVisible(WpPage.LOCATOR_FOOTER, driver);
     }
 }
