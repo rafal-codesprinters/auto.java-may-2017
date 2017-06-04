@@ -17,14 +17,10 @@ public abstract class WpMainPage extends WpPage {
     }
 
     public static void DisplayPost(int postNumber, WebDriver driver) {
-        By postLocator = GetPostLocator(postNumber);
+        By postLocator = By.xpath("//article[" + postNumber + "]");
         WebElement post = driver.findElement(postLocator);
         WebElement postLink = post.findElement(POST_LINK_LOCATOR);
         postLink.click();
+        WaitUntilFooterIsDisplayed(driver);
     }
-
-    private static By GetPostLocator(int postNumber) {
-        return By.xpath("//article[" + postNumber + "]");
-    }
-
 }

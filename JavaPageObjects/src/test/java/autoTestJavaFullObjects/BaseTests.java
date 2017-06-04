@@ -22,8 +22,8 @@ public abstract class BaseTests {
 
     @Before
     public void TestSetup() {
-        System.setProperty(GECKO_DRIVER_NAME, GECKO_DRIVER_PATH);
-        driver = new FirefoxDriver();
+        System.setProperty(CHROME_DRIVER_NAME, CHROME_DRIVER_PATH);
+        driver = new ChromeDriver();
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
