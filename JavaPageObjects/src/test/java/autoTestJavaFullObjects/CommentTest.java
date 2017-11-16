@@ -43,7 +43,7 @@ public class CommentTest extends BaseTests {
 
         //WHEN / ACT
         WpMainPage mainPage = new WpMainPage(this.driver);
-        mainPage.Open();
+        // mainPage.Open();
         WpPostPage postPage = mainPage.DisplayPost(1);
         postPage.AddComment(commentText, commentAuthorEmail, commentAuthorName);
         postPage.AddReplyToComment(commentText, commentAuthorName, replyText, replyAuthorEmail, replyAuthorName);
